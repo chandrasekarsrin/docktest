@@ -20,11 +20,12 @@ steps:
   - type: Command
     name: "Test the app Locally"
     command: |
-      curl --version > docktest-result.txt
+      curl --version
       docker ps
       docker network ls
       container_ip=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docktest)
-      echo "echo Container IP: $container_ip" >> docktest-result.txt
+      echo "echo Container IP: $container_ip"
+      docker info docktest
       curl $container_ip:5000
   - type: Command
     name: "Shutdown the app"
