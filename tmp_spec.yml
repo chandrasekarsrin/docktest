@@ -21,6 +21,7 @@ steps:
     name: "Test the app Locally"
     command: |
       curl --version > docktest-result.txt
+      docker ps
       container_ip=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docktest)
       echo "echo Container IP: $container_ip" >> docktest-result.txt
   - type: Command
