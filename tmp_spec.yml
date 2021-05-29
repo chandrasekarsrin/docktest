@@ -25,7 +25,7 @@ steps:
       docker network ls
       container_ip=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docktest)
       echo "echo Container IP: $container_ip"
-      docker info docktest
+      docker inspect docktest
       curl $container_ip:5000
   - type: Command
     name: "Shutdown the app"
