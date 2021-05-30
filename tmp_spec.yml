@@ -17,6 +17,7 @@ steps:
     name: "Run the app Locally"
     command: |
       docker run -d -p 5000:5000 --name docktest docktest:1.0
+      sleep 10
   - type: Command
     name: "Test the app Locally"
     command: |
